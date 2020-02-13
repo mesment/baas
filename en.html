@@ -235,59 +235,59 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#bluehelix-baas" class="toc-h1 toc-link" data-title="关于 BLUEHELIX BAAS">关于 BLUEHELIX BAAS</a>
+            <a href="#about-bluehelix-baas" class="toc-h1 toc-link" data-title="About BLUEHELIX BAAS">About BLUEHELIX BAAS</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#153042ed9e" class="toc-h2 toc-link" data-title="概述">概述</a>
+                    <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
                   </li>
                   <li>
-                    <a href="#c3b3224d14" class="toc-h2 toc-link" data-title="申请方式">申请方式</a>
+                    <a href="#how-to-apply" class="toc-h2 toc-link" data-title="How to apply?">How to apply?</a>
                   </li>
                   <li>
-                    <a href="#ebaf09501a" class="toc-h2 toc-link" data-title="上币申请材料">上币申请材料</a>
+                    <a href="#information-required-for-coin-listing" class="toc-h2 toc-link" data-title="Information Required For Coin Listing">Information Required For Coin Listing</a>
                   </li>
                   <li>
-                    <a href="#1138396d9a" class="toc-h2 toc-link" data-title="客户端代码示例">客户端代码示例</a>
+                    <a href="#client-sample" class="toc-h2 toc-link" data-title="Client Sample">Client Sample</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#api" class="toc-h1 toc-link" data-title="API签名认证">API签名认证</a>
+            <a href="#api-signature-authentication" class="toc-h1 toc-link" data-title="API Signature Authentication">API Signature Authentication</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#282d68464d" class="toc-h2 toc-link" data-title="域名">域名</a>
+                    <a href="#domain-name" class="toc-h2 toc-link" data-title="Domain name">Domain name</a>
                   </li>
                   <li>
-                    <a href="#http" class="toc-h2 toc-link" data-title="HTTP方法">HTTP方法</a>
+                    <a href="#httpmethods" class="toc-h2 toc-link" data-title="HTTPMethods">HTTPMethods</a>
                   </li>
                   <li>
                     <a href="#timestamp" class="toc-h2 toc-link" data-title="TIMESTAMP">TIMESTAMP</a>
                   </li>
                   <li>
-                    <a href="#efd228142a" class="toc-h2 toc-link" data-title="完成示例">完成示例</a>
+                    <a href="#complete-sample" class="toc-h2 toc-link" data-title="Complete Sample">Complete Sample</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#14f70b1746" class="toc-h1 toc-link" data-title="接口列表">接口列表</a>
+            <a href="#api-list" class="toc-h1 toc-link" data-title="API List">API List</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#412366bdb1" class="toc-h2 toc-link" data-title="获取剩余地址数量">获取剩余地址数量</a>
+                    <a href="#count-the-number-of-unused-address" class="toc-h2 toc-link" data-title="Count the number of unused address">Count the number of unused address</a>
                   </li>
                   <li>
-                    <a href="#4853ea161a" class="toc-h2 toc-link" data-title="添加充值地址">添加充值地址</a>
+                    <a href="#add-deposit-address" class="toc-h2 toc-link" data-title="Add deposit address">Add deposit address</a>
                   </li>
                   <li>
-                    <a href="#40ef847a16" class="toc-h2 toc-link" data-title="充值到账通知">充值到账通知</a>
+                    <a href="#deposit-notify" class="toc-h2 toc-link" data-title="Deposit Notify">Deposit Notify</a>
                   </li>
                   <li>
-                    <a href="#82d9036fa2" class="toc-h2 toc-link" data-title="获取待处理提现请求">获取待处理提现请求</a>
+                    <a href="#generate-pending-withdrawal-orders" class="toc-h2 toc-link" data-title="Generate pending withdrawal orders">Generate pending withdrawal orders</a>
                   </li>
                   <li>
-                    <a href="#3366e0610d" class="toc-h2 toc-link" data-title="提现处理完成通知">提现处理完成通知</a>
+                    <a href="#successful-withdrawal-notify" class="toc-h2 toc-link" data-title="Successful withdrawal notify">Successful withdrawal notify</a>
                   </li>
                   <li>
-                    <a href="#679af9d4b3" class="toc-h2 toc-link" data-title="定期对账">定期对账</a>
+                    <a href="#asset-reconciliation" class="toc-h2 toc-link" data-title="Asset reconciliation">Asset reconciliation</a>
                   </li>
               </ul>
           </li>
@@ -303,57 +303,60 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='bluehelix-baas'>关于 BLUEHELIX BAAS</h1><h2 id='153042ed9e'>概述</h2>
-<p>BLUEHELIX BAAS 提供REST风格的API（HTTPS + JSON)，方便BHOP客户自助接入第三方公链。</p>
+        <h1 id='about-bluehelix-baas'>About BLUEHELIX BAAS</h1><h2 id='overview'>Overview</h2>
+<p>BLUEHELIX BAAS provides a REST API (HTTPS + JSON) to facilitate Bluehelix Cloud customers&#39; for self-service access to third-party public chains.</p>
 
-<p>在请求API接口之前，需要申请APIKEY, 使用ED25519算法生成公私钥对，用户自己保存私钥，公钥在上币申请时进行提交，得到APIKEY。</p>
-<h2 id='c3b3224d14'>申请方式</h2>
+<p>Before requesting for an API socket, users need to apply for an APIKEY by using ED25519 algorithm to generate the Public &amp; Private Keys. Users are required to save the Public &amp; Private Keys. Submit the application for coin listing and attach the Public &amp; Private Keys accordingly. The APIKEY will then be issued to the applicant.</p>
+<h2 id='how-to-apply'>How to apply?</h2>
 <ul>
-<li>工单系统</li>
-<li>邮箱 globalbd@bhex.com</li>
+<li>Submit a Ticket Request</li>
+<li>Email to globalbd@bhex.com</li>
 </ul>
-<h2 id='ebaf09501a'>上币申请材料</h2>
+<h2 id='information-required-for-coin-listing'>Information Required For Coin Listing</h2>
 <table><thead>
 <tr>
-<th>参数</th>
-<th>值</th>
+<th>Parameter</th>
+<th>Value</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>币种ID</td>
+<td>Digital Asset Symbol</td>
 <td>ABC</td>
 </tr>
 <tr>
-<td>所属公链</td>
+<td>Explorer</td>
 <td>ABC</td>
 </tr>
 <tr>
-<td>代币精度</td>
+<td>Decimals</td>
 <td>8</td>
 </tr>
 <tr>
-<td>代币总量</td>
+<td>Total Supply</td>
 <td>100亿</td>
 </tr>
 <tr>
-<td>IP地址</td>
-<td>100.100.100.100 （用作IP白名单限制）</td>
+<td>IP address</td>
+<td>100.100.100.100  (used as IP whitelist restriction)</td>
 </tr>
 </tbody></table>
-<h2 id='1138396d9a'>客户端代码示例</h2>
-<p>提供4种编程语言（Python, JavaScript, Golang, JAVA)的用户端代码供用户使用 <a href="https://github.com/bhexopen/baas/clients">https://github.com/bhexopen/baas/clients</a>。</p>
-<h1 id='api'>API签名认证</h1><h2 id='282d68464d'>域名</h2>
+<h2 id='client-sample'>Client Sample</h2>
+<p>Developer can code using any one of the following programming languages (Python, JavaScript, Golang, JAVA) 
+https://github.com/bhexopen/baas/clients.</p>
+<h1 id='api-signature-authentication'>API Signature Authentication</h1>
+<p>The data needs to be signed as the following: HTTP_METHOD + | + HTTP_REQUEST_PATH + | + TIMESTAMP + | + PARAMS</p>
+
+<p>The API signature should sign data with ED25519 signature after connection and sign the bytes with hex encoding.</p>
+<h2 id='domain-name'>Domain name</h2>
 <ul>
-<li>测试环境：https://sandbox.bluehelix.com</li>
-<li>正式环境：https://baas.bluehelix.com</li>
+<li>Test env：https://sandbox.bluehelix.com</li>
+<li>Prod env：https://baas.bluehelix.com</li>
 </ul>
-<h2 id='http'>HTTP方法</h2>
+<h2 id='httpmethods'>HTTPMethods</h2>
 <p>GET POST</p>
 <h2 id='timestamp'>TIMESTAMP</h2>
-<p>访问 API 时的 UNIX EPOCH 时间戳 (精确到毫秒)</p>
-<h2 id='efd228142a'>完成示例</h2>
-<p>请求：</p>
-
+<p>When accessing API, the UNIX EPOCH timestamp is in milliseconds.</p>
+<h2 id='complete-sample'>Complete Sample</h2><h3 id='post-request'>POST Request</h3>
 <table><thead>
 <tr>
 <th>METHOD</th>
@@ -368,7 +371,7 @@
 </tr>
 </tbody></table>
 
-<p>参数见右：</p>
+<p>The request data shown on the right:：</p>
 <pre class="highlight plaintext"><code>{
   "side": 1,
   "amount": "100.0543",
@@ -377,27 +380,53 @@
   "block_height": 1000000
 }
 </code></pre>
-<p>在进行签名之前，需要对请求参数，按照key的首字母进行排序，得到如下数据： <code>POST|/api/v1/test/|1580887996488|amount=100.0543&amp;block_height=1000000&amp;side=1&amp;token_id=ABC&amp;tx_hash=0x1234567890</code></p>
+<p>Before signing in, you need to sort the request parameters according to the first letter of the key to obtain the following data <code>POST|/api/v1/test/|1580887996488|amount=100.0543&amp;block_height=1000000&amp;side=1&amp;token_id=ABC&amp;tx_hash=0x1234567890</code></p>
 
-<p>使用您本地生成的 private_key（私钥），对数据进行ED25519签名，并对二进制结果进行 Hex 编码, 得到最终签名signature。</p>
+<p>Use your locally generated private_key to sign off the data with ED25519. Then Hex-encode the binary result to obtain the final signature.</p>
 
-<p>在HTTP请求时，写入header，即可通过校验:</p>
+<p>In the HTTP request, enter the header to bypass the verification:</p>
 
 <ul>
 <li>BWAAS-API-KEY</li>
 <li>BWAAS-API-SIGNATURE</li>
 <li>BWAAS-API-TIMESTAMP</li>
 </ul>
-<h1 id='14f70b1746'>接口列表</h1><h2 id='412366bdb1'>获取剩余地址数量</h2>
+<h3 id='get-request'>GET Request</h3>
+<table><thead>
+<tr>
+<th>METHOD</th>
+<th>URL</th>
+<th>TIMESTAMP</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>https://sandbox.bluehelix.com/api/v1/test?chain=ABC</td>
+<td>1580887996488</td>
+</tr>
+</tbody></table>
+
+<p>Before signing in, you need to sort the request parameters according to the first letter of the key to obtain the following data <code>GET|/api/v1/test?chain=ABC|1580887996488</code></p>
+
+<p>Use your locally generated private_key to sign off the data with ED25519. Then Hex-encode the binary result to obtain the final signature.</p>
+
+<p>In the HTTP request, enter the header to bypass the verification:</p>
+
+<ul>
+<li>BWAAS-API-KEY</li>
+<li>BWAAS-API-SIGNATURE</li>
+<li>BWAAS-API-TIMESTAMP</li>
+</ul>
+<h1 id='api-list'>API List</h1><h2 id='count-the-number-of-unused-address'>Count the number of unused address</h2>
 <blockquote>
-<p>获取剩余地址数量</p>
+<p>Count the number of unused address</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl
   -X GET
   -H <span class="s2">"BWAAS-API-KEY: 123"</span>
   -H <span class="s2">"BWAAS-API-TIMESTAMP: 1580887996488"</span>
   -H <span class="s2">"BWAAS-API-SIGNATURE: f321da3"</span>
-  https://sandbox.bluehelix.com/api/v1/address/count/unused
+  https://sandbox.bluehelix.com/api/v1/address/unused/count/
 ?chain<span class="o">=</span>ABC
 </code></pre><pre class="highlight go"><code></code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight javascript tab-javascript"><code></code></pre>
 <blockquote>
@@ -411,58 +440,58 @@
 </span></code></pre>
 <p>HTTP Request：</p>
 
-<p><code>GET /v1/address/count/unused</code></p>
+<p><code>GET /v1/address/unused/count</code></p>
 
-<p>请求参数：</p>
+<p>Request parameters：</p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必须</th>
-<th>说明</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Mandatory</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>chain</td>
 <td>string</td>
-<td>是</td>
-<td>那个链</td>
+<td>yes</td>
+<td>The chain</td>
 </tr>
 </tbody></table>
 
-<p>响应结果：</p>
+<p>Response：</p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>code</td>
 <td>int</td>
-<td>详情见返回类型表</td>
+<td>Please see the retruen code list</td>
 </tr>
 <tr>
 <td>msg</td>
 <td>string</td>
-<td>返回内容；失败时为错误信息</td>
+<td>Returned content; error message if failed</td>
 </tr>
 <tr>
 <td>data</td>
 <td>int</td>
-<td>剩余地址数量</td>
+<td>Number of unused address</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
-检查是否需要重新生成地址时使用，需要定期调用，视新增用户速度决定。建议每小时调用一次。
+It is recommended that you generate the count of unused address/addresses regularly, preferably on an hourly basis. Any increase in the number of new users will change the final count.
 </aside>
-<h2 id='4853ea161a'>添加充值地址</h2>
+<h2 id='add-deposit-address'>Add deposit address</h2>
 <blockquote>
-<p>添加充值地址</p>
+<p>Add deposit address</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl
   -X POST
@@ -473,8 +502,8 @@
     {
       "chain":"ABC",
       "addr_list":[
-        "111111",
-        "222222"
+        "addr_111",
+        "addr_222"
       ]
     }
   '</span>
@@ -492,58 +521,59 @@
 
 <p><code>POST /v1/address/add</code></p>
 
-<p>请求参数：</p>
+<p>Request parameters：</p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必须</th>
-<th>说明</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Mandatory</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>chain</td>
 <td>string</td>
-<td>是</td>
-<td>那个链</td>
+<td>yes</td>
+<td>The chain</td>
 </tr>
 <tr>
 <td>addr_list</td>
 <td>[]string</td>
-<td>是</td>
-<td>地址列表</td>
+<td>yes</td>
+<td>list of address</td>
 </tr>
 </tbody></table>
 
-<p>响应结果：</p>
+<p>Response:</p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>code</td>
 <td>int</td>
-<td>详情见返回类型表</td>
+<td>Please see the retruen code list</td>
 </tr>
 <tr>
 <td>msg</td>
 <td>string</td>
-<td>返回内容；失败时为错误信息</td>
+<td>Returned content; error message if failed</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
-当检查到剩余地址小于特定值，比如10000时，重新生成一批地址，并调用此接口添加充值地址，建议每次添加的充值地址不超过100个，
-如果需要导入大量地址，可以多次调用此接口。对于使用tag的公链，客户端可只调用此服务添加一个充值地址即可，由服务端给来分配tag供充值使用。
+Check that the balance number of addresses is not less than the specified value. If the value is less than 1,000, please generate a new batch of addresses by calling the add deposit address. It is recommended to add no more than 100 deposit addresses per call. Should you require a larger number of addresses, please perform several add deposit requests accordingly.
+
+For Blockchain using Tag, client needs only to request for one (1) deposit address. Server will assign a unique tag to each address.
 </aside>
-<h2 id='40ef847a16'>充值到账通知</h2>
+<h2 id='deposit-notify'>Deposit Notify</h2>
 <blockquote>
-<p>充值到账通知</p>
+<p>Deposit Notify</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl
   -X POST
@@ -555,10 +585,10 @@
         "from": "addr1",
         "to": "addr2",
         "memo":"1234",
-        "index": 1,
         "token_id": "ABC",
         "amount": "124.23",
         "tx_hash": "1234",
+        "index": 1,
         "block_height": 124,
         "block_time": 1234
     }
@@ -577,99 +607,101 @@
 
 <p><code>POST /v1/notify/deposit</code></p>
 
-<p>请求参数：</p>
+<p>Request parameters:</p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必须</th>
-<th>说明</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Mandatory</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>from</td>
 <td>string</td>
-<td>是</td>
-<td>从哪个地址转出来</td>
+<td>yes</td>
+<td>from which address</td>
 </tr>
 <tr>
 <td>to</td>
 <td>string</td>
-<td>是</td>
-<td>转给那个地址</td>
+<td>yes</td>
+<td>to which address</td>
 </tr>
 <tr>
 <td>memo</td>
 <td>string</td>
-<td>可选</td>
-<td>memo标识</td>
-</tr>
-<tr>
-<td>index</td>
-<td>int</td>
-<td>是</td>
-<td>该充值所在交易中的位置</td>
+<td>optional</td>
+<td>memo</td>
 </tr>
 <tr>
 <td>token_id</td>
 <td>string</td>
-<td>是</td>
-<td>币种ID</td>
+<td>yes</td>
+<td>digital asset symbol</td>
 </tr>
 <tr>
 <td>amount</td>
 <td>string</td>
-<td>是</td>
-<td>充值金额</td>
+<td>yes</td>
+<td>deposit amount</td>
 </tr>
 <tr>
 <td>tx_hash</td>
 <td>string</td>
-<td>是</td>
-<td>交易hash</td>
+<td>yes</td>
+<td>transaction hash</td>
+</tr>
+<tr>
+<td>index</td>
+<td>int</td>
+<td>yes</td>
+<td>he location of the deposit made</td>
 </tr>
 <tr>
 <td>block_height</td>
-<td>int</td>
-<td>是</td>
-<td>区块高度</td>
+<td>int64</td>
+<td>yes</td>
+<td>block height</td>
 </tr>
 <tr>
 <td>block_time</td>
-<td>int</td>
-<td>是</td>
-<td>区块时间（秒）</td>
+<td>int64</td>
+<td>yes</td>
+<td>block time (seconds)</td>
 </tr>
 </tbody></table>
 
-<p>响应结果：</p>
+<p>Response：</p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>code</td>
 <td>int</td>
-<td>详情见返回类型表</td>
+<td>Please see the retruen code list</td>
 </tr>
 <tr>
 <td>msg</td>
 <td>string</td>
-<td>返回内容；失败时为错误信息</td>
+<td>Returned content; error message if failed</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
-当有用户充值时，调用此接口，为保证充值可靠性，充值需要逐笔执行，超过1条的话可以多次调用此接口。客户端必须保证充币的真实可靠，因客户端通知错误充值带来的损失，由客户端执行者承担。
+A call deposit notice will help to ensure the user receives notification after a deposit was made. Each call caters to one (1) deposit action. 
+
+The client is responsible to provide a proof of authenticity of all deposits made. Users will incur losses caused by any incorrect notification sent by the client.
 </aside>
-<h2 id='82d9036fa2'>获取待处理提现请求</h2>
+<h2 id='generate-pending-withdrawal-orders'>Generate pending withdrawal orders</h2>
 <blockquote>
-<p>获取待处理提现请求</p>
+<p>Generate pending withdrawal orders</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl
   -X GET
@@ -704,93 +736,99 @@
 </span></code></pre>
 <p>HTTP Request：</p>
 
-<p><code>POST /v1/withdrawal/orders</code></p>
+<p><code>GET /v1/withdrawal/orders</code></p>
 
-<p>请求参数：</p>
+<p>Request parameters:</p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必须</th>
-<th>说明</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Mandatory</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 </tbody></table>
 
-<p>响应结果：</p>
+<p>Response：</p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>code</td>
 <td>int</td>
-<td>详情见返回类型表</td>
+<td>Please see the retruen code list</td>
 </tr>
 <tr>
 <td>msg</td>
 <td>string</td>
-<td>返回内容；失败时为错误信息</td>
+<td>Returned content; error message if failed</td>
 </tr>
 <tr>
 <td>data</td>
 <td>[]order</td>
-<td>待处理提现订单列表</td>
+<td>List of pending withdrawal orders</td>
 </tr>
 </tbody></table>
 
-<p>order 信息：</p>
+<p>orderinfo：</p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>order_id</td>
-<td>int64</td>
-<td>订单id</td>
+<td>string</td>
+<td>order id</td>
 </tr>
 <tr>
 <td>token_id</td>
 <td>string</td>
-<td>提现币种</td>
+<td>withdrawal currency</td>
 </tr>
 <tr>
 <td>to</td>
 <td>string</td>
-<td>提现给那个地址</td>
+<td>withdrawal address</td>
 </tr>
 <tr>
 <td>memo</td>
 <td>string</td>
-<td>memo标记</td>
+<td>memo</td>
 </tr>
 <tr>
 <td>amount</td>
 <td>string</td>
-<td>提现金额</td>
+<td>withdrawal amount</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
-应定期轮询是否有用户提现需求 ，轮询周期建议不大于出块间隔的十分之一。如出块时间为15s，建议每1s轮询一次，出块时间为15min的话，建议15s轮询一次。为对账方便，服务端返回提币金额为净提币金额，链处理所需的手续费由客户端管理。
+A request for user's withdrawal is required. It is recommended that the number of requests should not be more than one-tenth of the interval for each block generated. 
 
-该接口每次最多返回50个未处理订单。
+If the time taken for a block to generate is 15s, it is recommended that you put in your request every 1s. 
+
+If the time taken for a block to generate is 15mins, it is recommended that you put in your request every 15s.
+
+To reconcile the assets, the net withdrawal amount is the withdrawal amount returned. The processing fee for on-chain transaction is managed by the client. 
+
+Each request generates up to 50 outstanding orders at a time.
 </aside>
-<h2 id='3366e0610d'>提现处理完成通知</h2>
+<h2 id='successful-withdrawal-notify'>Successful withdrawal notify</h2>
 <blockquote>
-<p>提现处理完成通知</p>
+<p>Successful withdrawal notify</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl
-  -X GET
+  -X POST
   -H <span class="s2">"BWAAS-API-KEY: 123"</span>
   -H <span class="s2">"BWAAS-API-TIMESTAMP: 1580887996488"</span>
   -H <span class="s2">"BWAAS-API-SIGNATURE: f321da3"</span>
@@ -821,103 +859,102 @@
 
 <p><code>POST /v1/notify/withdrawal</code></p>
 
-<p>请求参数：</p>
+<p>Request parameters:</p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必须</th>
-<th>说明</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Mandatory</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>order_id</td>
 <td>int64</td>
-<td>是</td>
-<td>订单id</td>
+<td>yes</td>
+<td>order id</td>
 </tr>
 <tr>
 <td>token_id</td>
 <td>string</td>
-<td>是</td>
-<td>提现币种</td>
+<td>yes</td>
+<td>withdrawal currency</td>
 </tr>
 <tr>
 <td>to</td>
 <td>string</td>
-<td>是</td>
-<td>提现给那个地址</td>
+<td>yes</td>
+<td>to wihich address</td>
 </tr>
 <tr>
 <td>memo</td>
 <td>string</td>
-<td>是</td>
-<td>memo标记</td>
+<td>yes</td>
+<td>memo</td>
 </tr>
 <tr>
 <td>amount</td>
 <td>string</td>
-<td>是</td>
-<td>提现金额</td>
+<td>yes</td>
+<td>withdrawal amount</td>
 </tr>
 <tr>
 <td>fee</td>
 <td>string</td>
-<td>是</td>
-<td>链上消耗手续费</td>
+<td>yes</td>
+<td>on-chain transaction fee</td>
 </tr>
 <tr>
 <td>tx_hash</td>
 <td>string</td>
-<td>是</td>
-<td>交易hash</td>
+<td>yes</td>
+<td>transaction hash</td>
 </tr>
 <tr>
 <td>block_height</td>
 <td>int</td>
-<td>是</td>
-<td>区块高度</td>
+<td>yes</td>
+<td>block height</td>
 </tr>
 <tr>
 <td>block_time</td>
 <td>int</td>
-<td>是</td>
-<td>区块时间（秒）</td>
+<td>yes</td>
+<td>block time (seconds)</td>
 </tr>
 </tbody></table>
 
-<p>响应结果：</p>
+<p>Response：</p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>code</td>
 <td>int</td>
-<td>详情见返回类型表</td>
+<td>Please see the retruen code list</td>
 </tr>
 <tr>
 <td>msg</td>
 <td>string</td>
-<td>返回内容；失败时为错误信息</td>
+<td>Returned content; error message if failed</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
-提币成功（提币交易已被区块链打包并确认执行成功）后调用此接口，为保证提币结果反馈可靠性，每次仅通知一笔提现处理结果。
-客服端负责保证提币执行后才调用此接口
+*After a successful withdrawal (blockchain shows the transactions on the distributed public ledger), calling for a Successful Withdrawal Notice is required. To ensure the reliability of the withdrawal result, only one withdrawal result is given at a time. It is the responsibility of the client to ensure that a request is called only after the withdrawal is executed.
 </aside>
-<h2 id='679af9d4b3'>定期对账</h2>
+<h2 id='asset-reconciliation'>Asset reconciliation</h2>
 <blockquote>
-<p>定期对账</p>
+<p>Asset verification</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl
-  -X GET
+  -X POST
   -H <span class="s2">"BWAAS-API-KEY: 123"</span>
   -H <span class="s2">"BWAAS-API-TIMESTAMP: 1580887996488"</span>
   -H <span class="s2">"BWAAS-API-SIGNATURE: f321da3"</span>
@@ -944,71 +981,73 @@
 
 <p><code>POST /v1/asset/verify</code></p>
 
-<p>请求参数：</p>
+<p>Request parameters:</p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必须</th>
-<th>说明</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Mandatory</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>token_id</td>
 <td>string</td>
-<td>是</td>
-<td>提现币种</td>
+<td>yes</td>
+<td>withdrawal currency</td>
 </tr>
 <tr>
 <td>total_deposit_amount</td>
 <td>string</td>
-<td>是</td>
-<td>总充值金额</td>
+<td>yes</td>
+<td>total deposit amount</td>
 </tr>
 <tr>
 <td>total_withdrawal_amount</td>
 <td>string</td>
-<td>是</td>
-<td>总提现金额</td>
+<td>yes</td>
+<td>total withdrawal amount</td>
 </tr>
 <tr>
 <td>total_fee_amount</td>
 <td>string</td>
-<td>是</td>
-<td>总提现链上手续费金额</td>
+<td>yes</td>
+<td>total on-chain transaction fee</td>
 </tr>
 <tr>
 <td>last_block_height</td>
 <td>int</td>
-<td>是</td>
-<td>对账最高区块高度</td>
+<td>yes</td>
+<td>reconciliation of highest block height</td>
 </tr>
 </tbody></table>
 
-<p>响应结果：</p>
+<p>Response：</p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>code</td>
 <td>int</td>
-<td>详情见返回类型表</td>
+<td>Please see the retruen code list</td>
 </tr>
 <tr>
 <td>msg</td>
 <td>string</td>
-<td>返回内容；失败时为错误信息</td>
+<td>Returned content; error message if failed</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
-定期进行资产对账，客服端定期（每小时或者每天进行对账，客户端根据链的出块时间，交易数量合理确定）向服务端反馈特定链上资产的充提情况（截止到asset_info中指定的区块高度），如果有未处理完成的提现订单，建议处理完成后进行对账。当服务端发现客户端反馈的资产信息与服务端不一致，将返回错误，并暂停该币种的充值提现。
+Asset reconciliation is performed on a regular basis, and the customer service terminal regularly (Reconciliation is performed every hour or every day, and the client determines the transaction amount reasonably based on the block generation time of the chain) reports the deposit and withdrawal of assets on a specific chain to the server (till the block height specified in asset_info). If there are outstanding withdrawal orders, it is recommended to perform reconciliation after processing is completed.
+
+When the server finds that the asset information returned by the client is inconsistent with the server, it will return an error and suspend the deposit and withdrawal of the currency.
 </aside>
 <h1 id='76bb30b1d9'>返回值列表</h1>
 <table><thead>
@@ -1021,72 +1060,102 @@
 <tr>
 <td>10000</td>
 <td>SUCCESS</td>
-<td>成功</td>
+<td>successful</td>
 </tr>
 <tr>
 <td>10001</td>
 <td>INVALID_SIGN</td>
-<td>无效签名</td>
+<td>invalid signature</td>
 </tr>
 <tr>
 <td>10002</td>
 <td>INVALID_APIKEY</td>
-<td>无效的api_key</td>
+<td>invalid api_key</td>
 </tr>
 <tr>
 <td>10004</td>
 <td>INVALID_CHAIN</td>
-<td>无效的chain</td>
+<td>invalid chain</td>
 </tr>
 <tr>
 <td>10005</td>
-<td>INVALID_PARAMS</td>
-<td>无效的参数</td>
+<td>INVALID_TOKEN_ID</td>
+<td>invalid token_id</td>
 </tr>
 <tr>
 <td>10006</td>
-<td>INVALID_TO_ADDRESS</td>
-<td>无效的充币地址</td>
+<td>INVALID_PARAMS</td>
+<td>invalid paramter</td>
 </tr>
 <tr>
 <td>10007</td>
-<td>INVALID_ORDER_ID</td>
-<td>无效的订单id</td>
+<td>INVALID_TO_ADDRESS</td>
+<td>invalid deposit address</td>
 </tr>
 <tr>
 <td>10008</td>
-<td>INVALID_WITHDARWAL_INFO</td>
-<td>无效的提现信息</td>
+<td>INVALID_ORDER_ID</td>
+<td>invalid order id</td>
 </tr>
 <tr>
 <td>10009</td>
-<td>REPEAT_DEPOSIT</td>
-<td>重复充值</td>
+<td>INVALID_AMOUNT</td>
+<td>invalid amount</td>
 </tr>
 <tr>
 <td>10010</td>
-<td>INVALID_TOKEN_ID</td>
-<td>无效的token_id</td>
+<td>INVALID_FEE</td>
+<td>invalid fee</td>
+</tr>
+<tr>
+<td>10011</td>
+<td>INVALID_DECIMALS</td>
+<td>invalid decimals</td>
+</tr>
+<tr>
+<td>10012</td>
+<td>INVALID_BLOCK_HEIGHT</td>
+<td>invalid block height</td>
+</tr>
+<tr>
+<td>10013</td>
+<td>INVALID_BLOCK_TIME</td>
+<td>invalid block time</td>
+</tr>
+<tr>
+<td>10014</td>
+<td>INVALID_TXHASH</td>
+<td>invalid tx hash</td>
+</tr>
+<tr>
+<td>10015</td>
+<td>INVALID_INDEX</td>
+<td>invalid tx index</td>
+</tr>
+<tr>
+<td>10016</td>
+<td>NETWORK_ERROR</td>
+<td>network error</td>
+</tr>
+<tr>
+<td>10017</td>
+<td>REPEAT_DEPOSIT</td>
+<td>repeat deposit</td>
 </tr>
 <tr>
 <td>10011</td>
 <td>ASSET_VERIFY_FAILED</td>
-<td>资产校验失败</td>
+<td>asset verification failed</td>
 </tr>
 <tr>
 <td>10012</td>
-<td>PAUSE_DEPOSIT</td>
-<td>充值暂停</td>
+<td>DEPOSIT_SUSPENDED</td>
+<td>deposit suspended</td>
 </tr>
 <tr>
 <td>10013</td>
-<td>PAUSE_WITHDRAWAL</td>
-<td>提现暂停</td>
-</tr>
-<tr>
-<td>10014</td>
-<td>NEED_MEMO</td>
-<td>需要memo</td>
+<td>WITHDRAWAL_SUSPENDED</td>
+<td>withdrawal suspended</td>
 </tr>
 </tbody></table>
 

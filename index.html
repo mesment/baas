@@ -342,7 +342,9 @@
 </tbody></table>
 <h2 id='1138396d9a'>客户端代码示例</h2>
 <p>提供4种编程语言（Python, JavaScript, Golang, JAVA)的用户端代码供用户使用 <a href="https://github.com/bhexopen/baas/clients">https://github.com/bhexopen/baas/clients</a>。</p>
-<h1 id='api'>API签名认证</h1><h2 id='282d68464d'>域名</h2>
+<h1 id='api'>API签名认证</h1>
+<p>签名前准备的数据如下： HTTP_METHOD + | + HTTP_REQUEST_PATH + | + TIMESTAMP + | + PARAMS 连接完成后，对数据进行 ED25519 签名，签名后的 bytes 进行 Hex 编码。</p>
+<h2 id='282d68464d'>域名</h2>
 <ul>
 <li>测试环境：https://sandbox.bluehelix.com</li>
 <li>正式环境：https://baas.bluehelix.com</li>
@@ -351,9 +353,7 @@
 <p>GET POST</p>
 <h2 id='timestamp'>TIMESTAMP</h2>
 <p>访问 API 时的 UNIX EPOCH 时间戳 (精确到毫秒)</p>
-<h2 id='efd228142a'>完成示例</h2>
-<p>请求：</p>
-
+<h2 id='efd228142a'>完成示例</h2><h3 id='post'>POST请求</h3>
 <table><thead>
 <tr>
 <th>METHOD</th>
@@ -377,9 +377,35 @@
   "block_height": 1000000
 }
 </code></pre>
-<p>在进行签名之前，需要对请求参数，按照key的首字母进行排序，得到如下数据： <code>POST|/api/v1/test/|1580887996488|amount=100.0543&amp;block_height=1000000&amp;side=1&amp;token_id=ABC&amp;tx_hash=0x1234567890</code></p>
+<p>在进行签名之前，需要对请求参数，按照key的首字母进行排序，得到如下数据： <code>POST|/api/v1/test|1580887996488|amount=100.0543&amp;block_height=1000000&amp;side=1&amp;token_id=ABC&amp;tx_hash=0x1234567890</code></p>
 
-<p>使用您本地生成的 private_key（私钥），对数据进行ED25519签名，并对二进制结果进行 Hex 编码, 得到最终签名signature。</p>
+<p>使用您本地生成的 private_key（私钥），对数据进行ED25519签名，并对签名后的bytes进行 Hex 编码, 得到最终签名signature。</p>
+
+<p>在HTTP请求时，写入header，即可通过校验:</p>
+
+<ul>
+<li>BWAAS-API-KEY</li>
+<li>BWAAS-API-SIGNATURE</li>
+<li>BWAAS-API-TIMESTAMP</li>
+</ul>
+<h3 id='get'>GET请求</h3>
+<table><thead>
+<tr>
+<th>METHOD</th>
+<th>URL</th>
+<th>TIMESTAMP</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td>https://sandbox.bluehelix.com/api/v1/test?chain=ABC</td>
+<td>1580887996488</td>
+</tr>
+</tbody></table>
+
+<p>在进行签名之前，需要对请求参数，按照key的首字母进行排序，得到如下数据： <code>GET|/api/v1/test?chain=ABC|1580887996488</code></p>
+
+<p>使用您本地生成的 private_key（私钥），对数据进行ED25519签名，并对签名后的bytes进行 Hex 编码, 得到最终签名signature。</p>
 
 <p>在HTTP请求时，写入header，即可通过校验:</p>
 
@@ -397,7 +423,7 @@
   -H <span class="s2">"BWAAS-API-KEY: 123"</span>
   -H <span class="s2">"BWAAS-API-TIMESTAMP: 1580887996488"</span>
   -H <span class="s2">"BWAAS-API-SIGNATURE: f321da3"</span>
-  https://sandbox.bluehelix.com/api/v1/address/count/unused
+  https://sandbox.bluehelix.com/api/v1/address/unused/count/
 ?chain<span class="o">=</span>ABC
 </code></pre><pre class="highlight go"><code></code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight javascript tab-javascript"><code></code></pre>
 <blockquote>
@@ -411,7 +437,7 @@
 </span></code></pre>
 <p>HTTP Request：</p>
 
-<p><code>GET /v1/address/count/unused</code></p>
+<p><code>GET /v1/address/unused/count</code></p>
 
 <p>请求参数：</p>
 
@@ -473,8 +499,8 @@
     {
       "chain":"ABC",
       "addr_list":[
-        "111111",
-        "222222"
+        "addr_111",
+        "addr_222"
       ]
     }
   '</span>
@@ -538,8 +564,10 @@
 </tbody></table>
 
 <aside class="notice">
-当检查到剩余地址小于特定值，比如10000时，重新生成一批地址，并调用此接口添加充值地址，建议每次添加的充值地址不超过100个，
-如果需要导入大量地址，可以多次调用此接口。对于使用tag的公链，客户端可只调用此服务添加一个充值地址即可，由服务端给来分配tag供充值使用。
+当检查到剩余地址小于特定值，比如1000时，重新生成一批地址，并调用此接口添加充值地址，建议每次添加的充值地址不超过100个，
+如果需要导入大量地址，可以多次调用此接口。
+
+对于使用memo的公链，客户端可只调用此服务添加一个充值地址即可，由服务端给来分配memo供充值使用。
 </aside>
 <h2 id='40ef847a16'>充值到账通知</h2>
 <blockquote>
@@ -555,10 +583,10 @@
         "from": "addr1",
         "to": "addr2",
         "memo":"1234",
-        "index": 1,
         "token_id": "ABC",
         "amount": "124.23",
         "tx_hash": "1234",
+        "index": 1,
         "block_height": 124,
         "block_time": 1234
     }
@@ -606,12 +634,6 @@
 <td>memo标识</td>
 </tr>
 <tr>
-<td>index</td>
-<td>int</td>
-<td>是</td>
-<td>该充值所在交易中的位置</td>
-</tr>
-<tr>
 <td>token_id</td>
 <td>string</td>
 <td>是</td>
@@ -630,14 +652,20 @@
 <td>交易hash</td>
 </tr>
 <tr>
-<td>block_height</td>
+<td>index</td>
 <td>int</td>
+<td>是</td>
+<td>该充值所在交易中的位置</td>
+</tr>
+<tr>
+<td>block_height</td>
+<td>int64</td>
 <td>是</td>
 <td>区块高度</td>
 </tr>
 <tr>
 <td>block_time</td>
-<td>int</td>
+<td>int64</td>
 <td>是</td>
 <td>区块时间（秒）</td>
 </tr>
@@ -665,7 +693,9 @@
 </tbody></table>
 
 <aside class="notice">
-当有用户充值时，调用此接口，为保证充值可靠性，充值需要逐笔执行，超过1条的话可以多次调用此接口。客户端必须保证充币的真实可靠，因客户端通知错误充值带来的损失，由客户端执行者承担。
+当有用户充值时，调用此接口，为保证充值可靠性，充值需要逐笔执行，超过1条的话可以多次调用此接口。
+
+客户端必须保证充币的真实可靠，因客户端通知错误充值带来的损失，由客户端执行者承担。
 </aside>
 <h2 id='82d9036fa2'>获取待处理提现请求</h2>
 <blockquote>
@@ -704,7 +734,7 @@
 </span></code></pre>
 <p>HTTP Request：</p>
 
-<p><code>POST /v1/withdrawal/orders</code></p>
+<p><code>GET /v1/withdrawal/orders</code></p>
 
 <p>请求参数：</p>
 
@@ -781,7 +811,11 @@
 </tbody></table>
 
 <aside class="notice">
-应定期轮询是否有用户提现需求 ，轮询周期建议不大于出块间隔的十分之一。如出块时间为15s，建议每1s轮询一次，出块时间为15min的话，建议15s轮询一次。为对账方便，服务端返回提币金额为净提币金额，链处理所需的手续费由客户端管理。
+应定期轮询是否有用户提现需求 ，轮询周期建议不大于出块间隔的十分之一。
+
+如出块时间为15s，建议每1s轮询一次，出块时间为15min的话，建议15s轮询一次。
+
+为对账方便，服务端返回提币金额为净提币金额，链处理所需的手续费由客户端管理。
 
 该接口每次最多返回50个未处理订单。
 </aside>
@@ -790,7 +824,7 @@
 <p>提现处理完成通知</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl
-  -X GET
+  -X POST
   -H <span class="s2">"BWAAS-API-KEY: 123"</span>
   -H <span class="s2">"BWAAS-API-TIMESTAMP: 1580887996488"</span>
   -H <span class="s2">"BWAAS-API-SIGNATURE: f321da3"</span>
@@ -833,7 +867,7 @@
 </thead><tbody>
 <tr>
 <td>order_id</td>
-<td>int64</td>
+<td>string</td>
 <td>是</td>
 <td>订单id</td>
 </tr>
@@ -917,7 +951,7 @@
 <p>定期对账</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl
-  -X GET
+  -X POST
   -H <span class="s2">"BWAAS-API-KEY: 123"</span>
   -H <span class="s2">"BWAAS-API-TIMESTAMP: 1580887996488"</span>
   -H <span class="s2">"BWAAS-API-SIGNATURE: f321da3"</span>
@@ -1008,7 +1042,9 @@
 </tbody></table>
 
 <aside class="notice">
-定期进行资产对账，客服端定期（每小时或者每天进行对账，客户端根据链的出块时间，交易数量合理确定）向服务端反馈特定链上资产的充提情况（截止到asset_info中指定的区块高度），如果有未处理完成的提现订单，建议处理完成后进行对账。当服务端发现客户端反馈的资产信息与服务端不一致，将返回错误，并暂停该币种的充值提现。
+定期进行资产对账，客服端定期（每小时或者每天进行对账，客户端根据链的出块时间，交易数量合理确定）向服务端反馈特定链上资产的充提情况（截止到asset_info中指定的区块高度）。
+
+如果有未处理完成的提现订单，建议处理完成后进行对账。当服务端发现客户端反馈的资产信息与服务端不一致，将返回错误，并暂停该币种的充值提现。
 </aside>
 <h1 id='76bb30b1d9'>返回值列表</h1>
 <table><thead>
@@ -1040,33 +1076,68 @@
 </tr>
 <tr>
 <td>10005</td>
+<td>INVALID_TOKEN_ID</td>
+<td>无效的token_id</td>
+</tr>
+<tr>
+<td>10006</td>
 <td>INVALID_PARAMS</td>
 <td>无效的参数</td>
 </tr>
 <tr>
-<td>10006</td>
+<td>10007</td>
 <td>INVALID_TO_ADDRESS</td>
 <td>无效的充币地址</td>
 </tr>
 <tr>
-<td>10007</td>
+<td>10008</td>
 <td>INVALID_ORDER_ID</td>
 <td>无效的订单id</td>
 </tr>
 <tr>
-<td>10008</td>
-<td>INVALID_WITHDARWAL_INFO</td>
-<td>无效的提现信息</td>
-</tr>
-<tr>
 <td>10009</td>
-<td>REPEAT_DEPOSIT</td>
-<td>重复充值</td>
+<td>INVALID_AMOUNT</td>
+<td>无效的amount值</td>
 </tr>
 <tr>
 <td>10010</td>
-<td>INVALID_TOKEN_ID</td>
-<td>无效的token_id</td>
+<td>INVALID_FEE</td>
+<td>无效的fee值</td>
+</tr>
+<tr>
+<td>10011</td>
+<td>INVALID_DECIMALS</td>
+<td>无效的精度</td>
+</tr>
+<tr>
+<td>10012</td>
+<td>INVALID_BLOCK_HEIGHT</td>
+<td>无效的区块高度</td>
+</tr>
+<tr>
+<td>10013</td>
+<td>INVALID_BLOCK_TIME</td>
+<td>无效的区块时间</td>
+</tr>
+<tr>
+<td>10014</td>
+<td>INVALID_TXHASH</td>
+<td>无效的tx_hash</td>
+</tr>
+<tr>
+<td>10015</td>
+<td>INVALID_INDEX</td>
+<td>无效的交易index</td>
+</tr>
+<tr>
+<td>10016</td>
+<td>NETWORK_ERROR</td>
+<td>网络错误</td>
+</tr>
+<tr>
+<td>10017</td>
+<td>REPEAT_DEPOSIT</td>
+<td>重复充值</td>
 </tr>
 <tr>
 <td>10011</td>
@@ -1075,18 +1146,13 @@
 </tr>
 <tr>
 <td>10012</td>
-<td>PAUSE_DEPOSIT</td>
+<td>DEPOSIT_SUSPENDED</td>
 <td>充值暂停</td>
 </tr>
 <tr>
 <td>10013</td>
-<td>PAUSE_WITHDRAWAL</td>
+<td>WITHDRAWAL_SUSPENDED</td>
 <td>提现暂停</td>
-</tr>
-<tr>
-<td>10014</td>
-<td>NEED_MEMO</td>
-<td>需要memo</td>
 </tr>
 </tbody></table>
 
