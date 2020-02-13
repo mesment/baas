@@ -292,7 +292,7 @@
               </ul>
           </li>
           <li>
-            <a href="#76bb30b1d9" class="toc-h1 toc-link" data-title="返回值列表">返回值列表</a>
+            <a href="#return-code-list" class="toc-h1 toc-link" data-title="Return code list">Return code list</a>
           </li>
       </div>
         <ul class="toc-footer">
@@ -430,7 +430,7 @@ https://github.com/bhexopen/baas/clients.</p>
 ?chain<span class="o">=</span>ABC
 </code></pre><pre class="highlight go"><code></code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight javascript tab-javascript"><code></code></pre>
 <blockquote>
-<p>返回结果：</p>
+<p>Reponse：</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
@@ -510,7 +510,7 @@ It is recommended that you generate the count of unused address/addresses regula
   https://sandbox.bluehelix.com/api/v1/address/add
 </code></pre><pre class="highlight go"><code></code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight javascript tab-javascript"><code></code></pre>
 <blockquote>
-<p>返回结果：</p>
+<p>Reponse：</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
@@ -596,7 +596,7 @@ For Blockchain using Tag, client needs only to request for one (1) deposit addre
   https://sandbox.bluehelix.com/api/v1/notify/deposit
 </code></pre><pre class="highlight go"><code></code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight javascript tab-javascript"><code></code></pre>
 <blockquote>
-<p>返回结果：</p>
+<p>Reponse：</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
@@ -711,7 +711,7 @@ The client is responsible to provide a proof of authenticity of all deposits mad
   https://sandbox.bluehelix.com/api/v1/withdrawal/orders
 </code></pre><pre class="highlight go"><code></code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight javascript tab-javascript"><code></code></pre>
 <blockquote>
-<p>返回结果：</p>
+<p>Reponse：</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
@@ -848,7 +848,7 @@ Each request generates up to 50 outstanding orders at a time.
   https://sandbox.bluehelix.com/api/v1/notify/withdrawal
 </code></pre><pre class="highlight go"><code></code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight javascript tab-javascript"><code></code></pre>
 <blockquote>
-<p>返回结果：</p>
+<p>Reponse：</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
@@ -970,7 +970,7 @@ Each request generates up to 50 outstanding orders at a time.
   https://sandbox.bluehelix.com/api/v1/asset/verify
 </code></pre><pre class="highlight go"><code></code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight javascript tab-javascript"><code></code></pre>
 <blockquote>
-<p>返回结果：</p>
+<p>Reponse：</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
@@ -1049,12 +1049,12 @@ Asset reconciliation is performed on a regular basis, and the customer service t
 
 When the server finds that the asset information returned by the client is inconsistent with the server, it will return an error and suspend the deposit and withdrawal of the currency.
 </aside>
-<h1 id='76bb30b1d9'>返回值列表</h1>
+<h1 id='return-code-list'>Return code list</h1>
 <table><thead>
 <tr>
-<th>返回值</th>
-<th>类型</th>
-<th>说明</th>
+<th>Code</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1143,17 +1143,17 @@ When the server finds that the asset information returned by the client is incon
 <td>repeat deposit</td>
 </tr>
 <tr>
-<td>10011</td>
+<td>10018</td>
 <td>ASSET_VERIFY_FAILED</td>
 <td>asset verification failed</td>
 </tr>
 <tr>
-<td>10012</td>
+<td>10019</td>
 <td>DEPOSIT_SUSPENDED</td>
 <td>deposit suspended</td>
 </tr>
 <tr>
-<td>10013</td>
+<td>10020</td>
 <td>WITHDRAWAL_SUSPENDED</td>
 <td>withdrawal suspended</td>
 </tr>
