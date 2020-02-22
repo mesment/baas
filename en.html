@@ -365,7 +365,7 @@ https://github.com/bhexopen/baas.</p>
 </thead><tbody>
 <tr>
 <td>POST</td>
-<td>https://sandbox.bluehelix.com/api/v1/test</td>
+<td>https://baas.bluehelix.com/api/v1/test</td>
 <td>1580887996488</td>
 </tr>
 </tbody></table>
@@ -400,7 +400,7 @@ https://github.com/bhexopen/baas.</p>
 </thead><tbody>
 <tr>
 <td>GET</td>
-<td>https://sandbox.bluehelix.com/api/v1/test?chain=ABC</td>
+<td>https://baas.bluehelix.com/api/v1/test?chain=ABC</td>
 <td>1580887996488</td>
 </tr>
 </tbody></table>
@@ -425,7 +425,7 @@ https://github.com/bhexopen/baas.</p>
   -H <span class="s2">"BWAAS-API-KEY: 123"</span>
   -H <span class="s2">"BWAAS-API-TIMESTAMP: 1580887996488"</span>
   -H <span class="s2">"BWAAS-API-SIGNATURE: f321da3"</span>
-  https://sandbox.bluehelix.com/api/v1/address/unused/count/
+  https://baas.bluehelix.com/api/v1/address/unused/count/
 ?chain<span class="o">=</span>ABC
 </code></pre><pre class="highlight go"><code></code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight javascript tab-javascript"><code></code></pre>
 <blockquote>
@@ -439,7 +439,7 @@ https://github.com/bhexopen/baas.</p>
 </span></code></pre>
 <p>HTTP Request：</p>
 
-<p><code>GET /v1/address/unused/count</code></p>
+<p><code>GET /api/v1/address/unused/count?chain=ABC</code></p>
 
 <p>Request parameters：</p>
 
@@ -506,7 +506,7 @@ It is recommended that you generate the count of unused address/addresses regula
       ]
     }
   '</span>
-  https://sandbox.bluehelix.com/api/v1/address/add
+  https://baas.bluehelix.com/api/v1/address/add
 </code></pre><pre class="highlight go"><code></code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight javascript tab-javascript"><code></code></pre>
 <blockquote>
 <p>Reponse：</p>
@@ -518,7 +518,7 @@ It is recommended that you generate the count of unused address/addresses regula
 </span></code></pre>
 <p>HTTP Request：</p>
 
-<p><code>POST /v1/address/add</code></p>
+<p><code>POST /api/v1/address/add</code></p>
 
 <p>Request parameters：</p>
 
@@ -592,7 +592,7 @@ For Blockchain using Tag, client needs only to request for one (1) deposit addre
         "block_time": 1234
     }
   '</span>
-  https://sandbox.bluehelix.com/api/v1/notify/deposit
+  https://baas.bluehelix.com/api/v1/notify/deposit
 </code></pre><pre class="highlight go"><code></code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight javascript tab-javascript"><code></code></pre>
 <blockquote>
 <p>Reponse：</p>
@@ -604,7 +604,7 @@ For Blockchain using Tag, client needs only to request for one (1) deposit addre
 </span></code></pre>
 <p>HTTP Request：</p>
 
-<p><code>POST /v1/notify/deposit</code></p>
+<p><code>POST /api/v1/notify/deposit</code></p>
 
 <p>Request parameters:</p>
 
@@ -707,7 +707,7 @@ The client is responsible to provide a proof of authenticity of all deposits mad
   -H <span class="s2">"BWAAS-API-KEY: 123"</span>
   -H <span class="s2">"BWAAS-API-TIMESTAMP: 1580887996488"</span>
   -H <span class="s2">"BWAAS-API-SIGNATURE: f321da3"</span>
-  https://sandbox.bluehelix.com/api/v1/withdrawal/orders
+  https://baas.bluehelix.com/api/v1/withdrawal/orders?chain<span class="o">=</span>ABC
 </code></pre><pre class="highlight go"><code></code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight javascript tab-javascript"><code></code></pre>
 <blockquote>
 <p>Reponse：</p>
@@ -735,7 +735,7 @@ The client is responsible to provide a proof of authenticity of all deposits mad
 </span></code></pre>
 <p>HTTP Request：</p>
 
-<p><code>GET /v1/withdrawal/orders</code></p>
+<p><code>GET /api/v1/withdrawal/orders?chain=ABC</code></p>
 
 <p>Request parameters:</p>
 
@@ -747,6 +747,12 @@ The client is responsible to provide a proof of authenticity of all deposits mad
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>chain</td>
+<td>string</td>
+<td>yes</td>
+<td>The chain,use mainnet token</td>
+</tr>
 </tbody></table>
 
 <p>Response：</p>
@@ -843,7 +849,7 @@ Each request generates up to 50 outstanding orders at a time.
     "block_time": 1540480255
   }
   '</span>
-  https://sandbox.bluehelix.com/api/v1/notify/withdrawal
+  https://baas.bluehelix.com/api/v1/notify/withdrawal
 </code></pre><pre class="highlight go"><code></code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight javascript tab-javascript"><code></code></pre>
 <blockquote>
 <p>Reponse：</p>
@@ -855,7 +861,7 @@ Each request generates up to 50 outstanding orders at a time.
 </span></code></pre>
 <p>HTTP Request：</p>
 
-<p><code>POST /v1/notify/withdrawal</code></p>
+<p><code>POST /api/v1/notify/withdrawal</code></p>
 
 <p>Request parameters:</p>
 
@@ -959,7 +965,7 @@ Each request generates up to 50 outstanding orders at a time.
     "last_block_height": "100000"
   }
   '</span>
-  https://sandbox.bluehelix.com/api/v1/asset/verify
+  https://baas.bluehelix.com/api/v1/asset/verify
 </code></pre><pre class="highlight go"><code></code></pre><pre class="highlight python tab-python"><code></code></pre><pre class="highlight javascript tab-javascript"><code></code></pre>
 <blockquote>
 <p>Reponse：</p>
@@ -971,7 +977,7 @@ Each request generates up to 50 outstanding orders at a time.
 </span></code></pre>
 <p>HTTP Request：</p>
 
-<p><code>POST /v1/asset/verify</code></p>
+<p><code>POST /api/v1/asset/verify</code></p>
 
 <p>Request parameters:</p>
 

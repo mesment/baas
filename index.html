@@ -515,7 +515,7 @@
 </span></code></pre>
 <p>HTTP Request：</p>
 
-<p><code>POST /api//v1/address/add</code></p>
+<p><code>POST /api/v1/address/add</code></p>
 
 <p>请求参数：</p>
 
@@ -602,7 +602,7 @@
 </span></code></pre>
 <p>HTTP Request：</p>
 
-<p><code>POST /api//v1/notify/deposit</code></p>
+<p><code>POST /api/v1/notify/deposit</code></p>
 
 <p>请求参数：</p>
 
@@ -733,7 +733,7 @@
 </span></code></pre>
 <p>HTTP Request：</p>
 
-<p><code>GET /api/v1/withdrawal/orders</code></p>
+<p><code>GET /api/v1/withdrawal/orders?chain=ABC</code></p>
 
 <p>请求参数：</p>
 
@@ -745,6 +745,12 @@
 <th>说明</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>chain</td>
+<td>string</td>
+<td>是</td>
+<td>那个链,使用主网代币</td>
+</tr>
 </tbody></table>
 
 <p>响应结果：</p>
@@ -851,7 +857,7 @@
 </span></code></pre>
 <p>HTTP Request：</p>
 
-<p><code>POST /api//v1/notify/withdrawal</code></p>
+<p><code>POST /api/v1/notify/withdrawal</code></p>
 
 <p>请求参数：</p>
 
@@ -967,7 +973,7 @@
 </span></code></pre>
 <p>HTTP Request：</p>
 
-<p><code>POST /api//v1/asset/verify</code></p>
+<p><code>POST /api/v1/asset/verify</code></p>
 
 <p>请求参数：</p>
 
