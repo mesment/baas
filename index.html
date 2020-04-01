@@ -310,6 +310,11 @@
 <p>BLUEHELIX BAAS 提供REST风格的API（HTTPS + JSON)，方便BHOP客户自助接入第三方公链。</p>
 
 <p>在请求API接口之前，需要申请APIKEY, 使用ED25519算法生成公私钥对，用户自己保存私钥，公钥在上币申请时进行提交，得到APIKEY。</p>
+
+<aside class="notice">
+客户端：全节点运营方
+服务端：BAAS
+</aside>
 <h2 id='c3b3224d14'>申请方式</h2>
 <ul>
 <li>工单系统</li>
@@ -344,7 +349,7 @@
 </tr>
 </tbody></table>
 <h2 id='1138396d9a'>客户端代码示例</h2>
-<p>提供4种编程语言（Python, Golang, Java)的用户端代码供用户使用 <a href="https://github.com/bhexopen/baas">https://github.com/bhexopen/baas/clients</a>。</p>
+<p>提供3种编程语言（Python, Golang, Java)的用户端代码供用户使用 <a href="https://github.com/bhexopen/baas">https://github.com/bhexopen/baas/clients</a>。</p>
 <h1 id='api'>API签名认证</h1>
 <p>签名前准备的数据如下： HTTP_METHOD + | + HTTP_REQUEST_PATH + | + TIMESTAMP + | + PARAMS 连接完成后，对数据进行 ED25519 签名，签名后的 bytes 进行 Hex 编码。</p>
 <h2 id='282d68464d'>域名</h2>
